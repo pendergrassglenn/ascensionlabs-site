@@ -1,0 +1,33 @@
+.hero {
+  position: relative;
+  height: 100vh;
+  background: url('/assets/img/black-ice.jpg') center center / cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, var(--bg-overlay), rgba(0,0,0,0.95));
+}
+
+.hero-content {
+  position: relative;
+  max-width: 900px;
+  padding: 20px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  color: var(--text-muted);
+  margin-bottom: 40px;
+}
