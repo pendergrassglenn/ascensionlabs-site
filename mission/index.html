@@ -1,0 +1,926 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <title>Mission | Ascension Labs</title>
+
+  <style>
+    :root {
+      --bg-black: #05070a;
+      --bg-surface: #0d0f14;
+      --bg-card: #14181f;
+      --bg-card2: #10141b;
+
+      --border: rgba(255,255,255,0.08);
+      --border2: rgba(255,255,255,0.12);
+
+      --accent: #4ea3ff;        /* Tactical Blue */
+      --accent-dim: rgba(78,163,255,0.30);
+      --accent-faint: rgba(78,163,255,0.10);
+
+      --text-main: #e0e6ed;
+      --text-dim: #94a3b8;
+      --text-faint: rgba(224,230,237,0.65);
+
+      --mono: "SF Mono", "Roboto Mono", ui-monospace, Menlo, Monaco, Consolas, monospace;
+
+      --shadow: 0 22px 70px rgba(0,0,0,0.62);
+      --inset: inset 0 0 50px rgba(78,163,255,0.06);
+      --radius: 6px;
+
+      :root {
+      --ops: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      --ops-condensed: "Bahnschrift", "DIN Condensed", "Impact", "Arial Narrow", system-ui, sans-serif;
+      --mono: ui-monospace, "SF Mono", "Roboto Mono", Menlo, Monaco, Consolas, monospace;
+}
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+
+    body {
+      margin: 0;
+      background: var(--bg-black);
+      color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    /* Tactical Grid Overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(78, 163, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(78, 163, 255, 0.02) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* faint vignette */
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at 50% 30%, transparent 0%, rgba(0,0,0,0.45) 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Header / Nav */
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(5, 7, 10, 0.86);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 70px;
+      gap: 16px;
+    }
+
+    .logo {
+      font-weight: 900;
+      letter-spacing: 0.30em;
+      font-size: 13px;
+      color: var(--accent);
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      text-align: right;
+    }
+
+    .status {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .status b {
+      color: #4ade80;
+      font-weight: 900;
+    }
+
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      text-decoration: none;
+      padding: 10px 10px;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-main);
+      border-color: var(--border);
+      background: rgba(255,255,255,0.03);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 120px 0 70px;
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr; /* heavier visual dominance */
+      gap: 70px;
+      align-items: center;
+    }
+
+    .kicker {
+      font-family: var(--mono);
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: 58px;
+      font-weight: 950;
+      line-height: 1.05;
+      margin: 0 0 22px 0;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-p {
+      font-size: 17px;
+      color: var(--text-dim);
+      max-width: 520px;
+      margin-bottom: 34px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 16px 32px;
+      background: var(--accent);
+      color: #000;
+      text-decoration: none;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 13px;
+      border-radius: 4px;
+      transition: transform 0.12s ease, opacity 0.12s ease;
+    }
+
+    .btn:hover {
+      opacity: 0.92;
+      transform: translateY(-1px);
+      cursor: crosshair;
+    }
+
+    .btn.secondary {
+      background: transparent;
+      color: var(--text-main);
+      border: 1px solid var(--border2);
+      margin-left: 12px;
+    }
+
+    .btn.secondary:hover {
+      background: rgba(255,255,255,0.03);
+      border-color: rgba(78,163,255,0.22);
+    }
+
+    /* HERO micro-line */
+    .micro {
+      margin-top: 18px;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .micro span {
+      padding: 8px 10px;
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,0.18);
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    /* ================================
+       C2 DISPLAY (Square Command Board)
+       ================================ */
+    .c2 {
+      position: relative;
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(13,15,20,0.96), rgba(10,12,16,0.92));
+      padding: 26px;
+      min-height: 560px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    /* inner frame */
+    .c2 .frame {
+      position: absolute;
+      inset: 14px;
+      border: 1px solid rgba(255,255,255,0.06);
+      pointer-events: none;
+    }
+
+    /* crosshair */
+    .c2::before,
+    .c2::after {
+      content: "";
+      position: absolute;
+      background: rgba(78,163,255,0.05);
+      pointer-events: none;
+    }
+    .c2::before { width: 1px; height: 100%; left: 50%; top: 0; }
+    .c2::after  { height: 1px; width: 100%; top: 50%; left: 0; }
+
+    /* corner ticks */
+    .tick {
+      position: absolute;
+      width: 16px; height: 16px;
+      border-color: rgba(78,163,255,0.22);
+      border-style: solid;
+      pointer-events: none;
+    }
+    .t1 { top: 10px; left: 10px; border-width: 2px 0 0 2px; }
+    .t2 { top: 10px; right: 10px; border-width: 2px 2px 0 0; }
+    .t3 { bottom: 10px; left: 10px; border-width: 0 0 2px 2px; }
+    .t4 { bottom: 10px; right: 10px; border-width: 0 2px 2px 0; }
+
+    /* subtle sweep (C2, not arcade) */
+    .sweep {
+      position: absolute;
+      inset: -55%;
+      background: conic-gradient(from 0deg,
+        transparent 0 330deg,
+        rgba(78,163,255,0.10) 330deg 360deg);
+      animation: sweep 9s linear infinite;
+      opacity: 0.65;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    @keyframes sweep {
+      to { transform: rotate(360deg); }
+    }
+
+    /* top labels inside C2 */
+    .c2-top {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: flex-start;
+      z-index: 2;
+    }
+
+      <div class="c2-label">
+    COMMAND VIEW<br>
+    <strong>CAI DIRECTOR NODE</strong><br>
+    <span style="opacity:.75;">BUILD: AXIOM // TRL: R&amp;D // TIME: 04:17Z</span>
+  </div>
+
+    .c2-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.20em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      line-height: 1.4;
+    }
+
+    .c2-label strong {
+      color: var(--text-main);
+      font-weight: 900;
+    }
+
+    .mode {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,0.18);
+      padding: 10px 12px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+    .mode b { color: var(--accent); }
+
+    /* escalation ladder */
+    .ladder {
+      position: absolute;
+      right: 18px;
+      top: 86px;
+      font-family: var(--mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-dim);
+      z-index: 3;
+      user-select: none;
+    }
+    .ladder .r {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 10px;
+      opacity: 0.55;
+    }
+    .ladder .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.03);
+    }
+    .ladder .active {
+      opacity: 1;
+      color: var(--accent);
+    }
+    .ladder .active .dot {
+      border-color: rgba(78,163,255,0.40);
+      background: rgba(78,163,255,0.22);
+      box-shadow: 0 0 18px rgba(78,163,255,0.18);
+    }
+
+    /* director node */
+    .director {
+      position: absolute;
+      left: 50%;
+      top: 52%;
+      transform: translate(-50%, -50%);
+      z-index: 4;
+      text-align: center;
+      margin-top: 0; /* kill the drift */
+}    .director .big {
+      font-family: var(--mono);
+      font-size: 44px;
+      font-weight: 950;
+      color: var(--accent);
+      letter-spacing: 0.22em;
+      margin: 0;
+    }
+    .director .sub {
+      margin-top: 10px;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.30em;
+      color: var(--text-dim);
+      text-transform: uppercase;
+    }
+
+    /* domain nodes around center (subtle) */
+    .nodes {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .node {
+      position: absolute;
+      padding: 8px 10px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(0,0,0,0.18);
+      border-radius: 4px;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      opacity: 0.85;
+    }
+
+    .nodes { inset: 0; }
+    .node { border-radius: 999px; padding: 7px 12px; } /* ovals read more “UI tag” than “card” */
+
+    .n1 { left: 18%; top: 36%; }
+    .n2 { left: 48%; top: 20%; transform: translateX(-50%); }
+    .n3 { right: 18%; top: 36%; }
+    .n4 { right: 22%; bottom: 26%; }
+    .n5 { left: 22%; bottom: 26%; }
+    .n6 { left: 50%; top: 74%; transform: translateX(-50%); }
+
+    /* status strip ticker */
+    .status-strip {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      background: rgba(0,0,0,0.25);
+      padding: 14px 18px;
+      z-index: 4;
+      overflow: hidden;
+    }
+
+    .ticker {
+      display: flex;
+      gap: 26px;
+      white-space: nowrap;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      animation: ticker 18s linear infinite;
+    }
+
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .ticker span b {
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    /* confidence meter */
+    .meter {
+      position: absolute;
+      left: 18px;
+      bottom: 62px;
+      z-index: 4;
+      width: 260px;
+      border: 1px solid rgba(255,255,255,0.07);
+      background: rgba(0,0,0,0.20);
+      padding: 12px 12px 10px;
+      border-radius: 4px;
+      font-family: var(--mono);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-dim);
+      font-size: 10px;
+    }
+    .bar {
+      margin-top: 8px;
+      height: 10px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.02);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .fill {
+      height: 100%;
+      width: 87%;
+      background: linear-gradient(90deg, rgba(78,163,255,0.20), rgba(78,163,255,0.70));
+    }
+    .meter .val {
+      margin-top: 8px;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      color: var(--text-main);
+    }
+
+    /* ================================
+       Sections
+       ================================ */
+    section { margin-top: 110px; }
+
+    .section-title {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.30em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 26px;
+    }
+
+    .lead {
+      max-width: 780px;
+      color: var(--text-dim);
+      margin-top: 10px;
+      font-size: 15px;
+    }
+
+    .mission-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 30px;
+    }
+
+    .mission-card {
+      background: var(--bg-card2);
+      border: 1px solid var(--border);
+      padding: 28px;
+      border-radius: var(--radius);
+      box-shadow: 0 18px 55px rgba(0,0,0,0.25);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mission-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: rgba(78,163,255,0.55);
+    }
+
+    .mission-card h3 {
+      margin: 0 0 10px 0;
+      font-size: 14px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .mission-card p {
+      margin: 0;
+      font-size: 14px;
+      color: var(--text-dim);
+    }
+
+  <section id="demo">
+    <div class="section-title">Demonstration & Metrics</div>
+    <p class="lead">
+      Objective: achieve a measurable reduction in cross-domain escalation latency through compartment-aware fusion and audit-bound autonomy.
+    </p>
+
+  <div class="doctrine">
+    <div class="line">Demo Focus</div>
+    <ul>
+      <li><b>Scenario</b>: coordinated hostile activity across HUMINT / DARKINT / SIGINT / GEOINT targeting critical infrastructure.</li>
+      <li><b>System behavior</b>: ingest → correlate → confidence scoring → escalation recommendation → posture guidance.</li>
+      <li><b>Primary metrics</b>: correlation time, confidence curve quality, false-positive suppression, analyst workload reduction.</li>
+      <li><b>Success criteria</b>: repeatable, audited decisions under disconnected / contested operating constraints.</li>
+    </ul>
+  </div>
+</section>
+
+    /* doctrine block */
+    .doctrine {
+      margin-top: 28px;
+      border: 1px solid rgba(255,255,255,0.07);
+      background: rgba(0,0,0,0.18);
+      padding: 26px;
+      border-radius: var(--radius);
+      color: var(--text-dim);
+      max-width: 920px;
+    }
+
+    .doctrine .line {
+      font-family: var(--mono);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-main);
+      font-size: 12px;
+      margin: 0 0 10px 0;
+    }
+
+    .doctrine ul {
+      margin: 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .doctrine li {
+      color: var(--text-dim);
+      font-size: 14px;
+    }
+
+    /* Footer */
+    footer {
+      padding: 110px 0 40px;
+      border-top: 1px solid var(--border);
+      margin-top: 110px;
+      text-align: center;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+
+    /* Responsive */
+    @media (max-width: 1020px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .c2 { min-height: 520px; }
+      h1 { font-size: 52px; }
+      .mission-grid { grid-template-columns: 1fr; }
+      .meter { width: 92%; }
+      .nodes .n6 { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .sweep, .ticker { animation: none; }
+    }
+
+    body { font-family: var(--ops); }
+
+h1 {
+  font-family: var(--ops-condensed);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.logo { font-family: var(--mono); }
+.kicker, .status, .nav-links a, .micro, .c2-label, .mode, .ladder, .meter, .ticker { font-family: var(--mono); }
+
+
+/* ================================
+   RADAR LAYER (centered + aligned)
+   ================================ */
+.radar {
+  position: absolute;
+  left: 50%;
+  top: 52%;
+  width: 520px;
+  height: 520px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.95;
+  filter: saturate(1.15);
+}
+
+/* radar rings */
+.radar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at center,
+      rgba(78,163,255,0.00) 0%,
+      rgba(78,163,255,0.00) 18%,
+      rgba(78,163,255,0.08) 18.5%,
+      rgba(78,163,255,0.00) 19%,
+      rgba(78,163,255,0.00) 38%,
+      rgba(78,163,255,0.07) 38.5%,
+      rgba(78,163,255,0.00) 39%,
+      rgba(78,163,255,0.00) 58%,
+      rgba(78,163,255,0.06) 58.5%,
+      rgba(78,163,255,0.00) 59%,
+      rgba(78,163,255,0.00) 78%,
+      rgba(78,163,255,0.05) 78.5%,
+      rgba(78,163,255,0.00) 79%);
+  border: 1px solid rgba(78,163,255,0.10);
+  box-shadow: inset 0 0 90px rgba(78,163,255,0.05);
+}
+
+/* crosshair lines inside the radar disk */
+.radar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background:
+    linear-gradient(transparent 49.7%, rgba(78,163,255,0.10) 49.9%, transparent 50.1%),
+    linear-gradient(90deg, transparent 49.7%, rgba(78,163,255,0.10) 49.9%, transparent 50.1%);
+  opacity: 0.55;
+}
+
+/* sweep cone */
+.radar .sweep {
+  position: absolute;
+  inset: -35%;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0 332deg,
+    rgba(78,163,255,0.14) 332deg 360deg
+  );
+  animation: sweep 7.5s linear infinite;
+  mix-blend-mode: screen;
+  opacity: 0.75;
+}
+
+/* subtle blips */
+.radar .blip {
+  position: absolute;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: rgba(78,163,255,0.85);
+  box-shadow: 0 0 18px rgba(78,163,255,0.35);
+  opacity: 0.75;
+}
+.radar .b1 { left: 22%; top: 34%; opacity: 0.55; }
+.radar .b2 { left: 68%; top: 26%; opacity: 0.70; }
+.radar .b3 { left: 76%; top: 66%; opacity: 0.50; }
+.radar .b4 { left: 30%; top: 74%; opacity: 0.62; }
+
+/* make sure CAI stays above radar */
+.director, .nodes, .ladder, .meter, .status-strip, .c2-top {
+  position: relative;
+  z-index: 3;
+}
+
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="container">
+    <div class="nav-inner">
+      <div class="logo">Ascension Labs // Mission</div>
+
+      <div class="nav-right">
+        <div class="nav-links">
+          <a href="#framework">Framework</a>
+          <a href="#doctrine">Doctrine</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="status">System Status: <b>Operational</b></div>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <section class="hero">
+    <div class="hero-grid">
+
+      <div>
+        <div class="kicker">Sovereign Defense Directive</div>
+        <h1>Establish Decision Superiority.</h1>
+
+        <p class="hero-p">
+          Ascension Labs engineers sovereign Cybernetic Autonomous Intelligence (CAI) systems for multi-domain fusion,
+          escalation control, and machine-speed decision support in contested operational environments.
+        </p>
+
+        <a href="#contact" class="btn">Request Strategic Brief</a>
+        <a href="#framework" class="btn secondary">Review Mission</a>
+
+        <div class="micro" aria-label="Core attributes">
+          <span>Compartment-Aware</span>
+          <span>Air-Gap Deployable</span>
+          <span>Audit-Controlled Autonomy</span>
+          <span>STIX 2.1 Alignment</span>
+        </div>
+      </div>
+
+      <!-- C2 Command Board -->
+      <div class="c2" aria-label="C2 Command Display">
+        <div class="sweep" aria-hidden="true"></div>
+        <div class="frame" aria-hidden="true"></div>
+        <div class="tick t1" aria-hidden="true"></div>
+        <div class="tick t2" aria-hidden="true"></div>
+        <div class="tick t3" aria-hidden="true"></div>
+        <div class="tick t4" aria-hidden="true"></div>
+
+        <div class="c2-top">
+          <div class="c2-label">
+            COMMAND VIEW<br>
+            <strong>CAI DIRECTOR NODE</strong>
+          </div>
+          <div class="mode">MODE: <b>AIR-GAPPED</b></div>
+        </div>
+
+        <div class="ladder" aria-label="Escalation ladder">
+          <div class="r"><span class="dot"></span>Monitor</div>
+          <div class="r"><span class="dot"></span>Correlate</div>
+          <div class="r active"><span class="dot"></span>Validate</div>
+          <div class="r"><span class="dot"></span>Escalate</div>
+          <div class="r"><span class="dot"></span>Execute</div>
+        </div>
+
+        <div class="nodes" aria-hidden="true">
+          <div class="node n1">HUMINT</div>
+          <div class="node n2">SIGINT</div>
+          <div class="node n3">CYBINT</div>
+          <div class="node n4">DARKINT</div>
+          <div class="node n5">GEOINT</div>
+          <div class="node n6">WEBINT</div>
+        </div>
+
+        <div class="director">
+          <div class="big">CAI</div>
+          <div class="sub">DIRECTOR AUTHORITY</div>
+        </div>
+
+        <div class="meter" aria-label="Correlation confidence">
+          CORRELATION CONFIDENCE
+          <div class="bar"><div class="fill"></div></div>
+          <div class="val">87.3%</div>
+        </div>
+
+        <div class="status-strip" aria-label="Status ticker">
+          <div class="ticker">
+            <span>SIGINT // <b>ACTIVE</b></span>
+            <span>CYBINT // <b>INGESTING</b></span>
+            <span>DARKINT // <b>CORRELATING</b></span>
+            <span>GEOINT // <b>VALIDATED</b></span>
+            <span>FININT // <b>SCREENING</b></span>
+            <span>MASINT // <b>PASSIVE</b></span>
+
+            <!-- duplicate for seamless scroll -->
+            <span>SIGINT // <b>ACTIVE</b></span>
+            <span>CYBINT // <b>INGESTING</b></span>
+            <span>DARKINT // <b>CORRELATING</b></span>
+            <span>GEOINT // <b>VALIDATED</b></span>
+            <span>FININT // <b>SCREENING</b></span>
+            <span>MASINT // <b>PASSIVE</b></span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="framework">
+    <div class="section-title">Mission Framework</div>
+    <p class="lead">
+      Cyber conflict is continuous. Adversaries leverage automation, AI-enabled exploitation, and distributed infrastructure.
+      Ascension Labs exists to reduce escalation latency through sovereign correlation and controlled autonomy.
+    </p>
+
+    <div class="mission-grid">
+      <div class="mission-card">
+        <h3>Continuous Threat Environment</h3>
+        <p>Operate against adversaries executing automated campaigns at machine speed across distributed surfaces.</p>
+      </div>
+
+          <div class="doctrine" style="margin-top:22px; max-width: 980px;">
+      <div class="line">Demonstration Focus — Multi-Domain Fusion Escalation</div>
+      <ul>
+        <li><b>Scenario</b>: coordinated hostile activity targeting critical infrastructure across HUMINT / DARKINT / SIGINT / GEOINT.</li>
+        <li><b>System Behavior</b>: correlates → confidence scoring → escalation recommendation → posture adjustment guidance.</li>
+        <li><b>Evaluation Metrics</b>: correlation time, confidence curve, false-positive suppression, analyst workload reduction.</li>
+      </ul>
+    </div>
+
+      <div class="mission-card">
+        <h3>Multi-Domain Fusion</h3>
+        <p>Unify intelligence domains under a single CAI Director layer designed for correlation-first escalation control.</p>
+      </div>
+
+      <div class="mission-card">
+        <h3>Controlled Autonomy</h3>
+        <p>Autonomy is earned via audit trails, compartment enforcement, confidence scoring, and human decision thresholds.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="radar" aria-hidden="true">
+  <div class="sweep"></div>
+  <div class="blip b1"></div>
+  <div class="blip b2"></div>
+  <div class="blip b3"></div>
+  <div class="blip b4"></div>
+</div>
+
+  <section id="doctrine">
+    <div class="section-title">Operating Doctrine</div>
+    <div class="doctrine">
+      <div class="line">Principles</div>
+      <ul>
+        <li><b>Correlation-first</b>: reduce noise; elevate signal; prioritize escalation windows.</li>
+        <li><b>Compartment-aware</b>: enforce domain boundaries and controlled visibility by design.</li>
+        <li><b>Audit-controlled autonomy</b>: every escalation is traceable, scored, and reviewable.</li>
+        <li><b>Sovereign posture</b>: deploy in disconnected environments without external dependency chains.</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer id="contact">
+    DISTRIBUTION: UNCLASSIFIED // FOUO <br>
+    © 2026 GENAI DYNAMICS LLC. ALL RIGHTS RESERVED.
+  </footer>
+
+</main>
+</body>
+</html>

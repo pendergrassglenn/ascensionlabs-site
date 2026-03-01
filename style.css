@@ -1,0 +1,393 @@
+.hero {
+  position: relative;
+  height: 100vh;
+  background: url('/background-ascension.png') center center / cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3.2rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 20px;
+}
+
+.hero-content {
+  max-width: 900px;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: 3.4rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.arch-hero {
+  padding: 140px 40px 60px;
+  text-align: center;
+}
+
+.arch-hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+}
+
+.arch-hero p {
+  max-width: 700px;
+  margin: 0 auto;
+  color: rgba(255,255,255,0.7);
+}
+
+.arch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  padding: 60px 80px 120px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.arch-core {
+  padding: 160px 40px 100px;
+  text-align: center;
+  position: relative;
+}
+
+.core-container {
+  max-width: 900px;
+  margin: 0 auto;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  padding: 50px;
+  background: linear-gradient(
+    145deg,
+    rgba(0, 0, 0, 0.796),
+    rgba(36, 38, 38, 0.78)
+  );
+  border: 1px solid rgba(75, 13, 13, 0.593);
+}
+
+.core-container:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(209, 191, 191, 0.216);
+}
+
+
+.arch-core h2 {
+  font-size: 2.6rem;
+  margin-bottom: 25px;
+}
+
+.arch-core p {
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 30px;
+}
+
+.section-label {
+  text-align: center;
+  margin-bottom: 00px;
+  letter-spacing: 2px;
+  font-size: 2.0rem;
+  color: rgba(255,255,255,0.6);
+}
+
+.arch-domains {
+  padding: 100px 40px 120px;
+  margin-top: 60px;
+}
+
+.architecture-page {
+  position: relative;
+  padding-bottom: 120px;
+}
+
+.section-divider {
+  height: 1px;
+  width: 60%;
+  margin: 100px auto;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(120,0,0,0.6),
+    transparent
+  );
+}
+
+  .arch-layers {
+  padding: 80px 40px;
+  text-align: center;
+}
+
+.layer-stack {
+  max-width: 900px;
+  margin: 60px auto 0;
+}
+
+.layer-item {
+  text-align: left;
+  padding: 30px 40px;
+  margin-bottom: 20px;
+  background: rgba(15,20,28,0.9);
+  border-left: 4px solid var(--accent-red);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.layer-item h4 {
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.layer-item p {
+  color: rgba(255,255,255,0.7);
+}
+
+.arch-deployment {
+  padding: 80px 40px 140px;
+  text-align: center;
+}
+
+.deployment-box {
+  max-width: 900px;
+  margin: 40px auto 0;
+  padding: 60px;
+  background: rgba(15,20,28,0.95);
+  border-left: 6px solid var(--accent-red);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+/* Architecture Page Layout */
+
+.architecture-page {
+  padding-bottom: 120px;
+}
+
+.section-divider {
+  height: 1px;
+  width: 60%;
+  margin: 100px auto;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(120,0,0,0.6),
+    transparent
+  );
+}
+
+/* CAI */
+
+.arch-core {
+  padding: 160px 40px 80px;
+  text-align: center;
+}
+
+.core-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px;
+  background: rgba(15,20,28,0.95);
+  border-left: 6px solid var(--accent-red);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+/* Layers */
+
+.arch-layers {
+  padding: 80px 40px;
+  text-align: center;
+}
+
+.layer-stack {
+  max-width: 900px;
+  margin: 60px auto 0;
+}
+
+.layer-item {
+  text-align: left;
+  padding: 30px 40px;
+  margin-bottom: 20px;
+  background: rgba(15,20,28,0.9);
+  border-left: 4px solid var(--accent-red);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.layer-item p {
+  color: rgba(255,255,255,0.7);
+}
+
+/* Domains */
+
+.arch-domains {
+  padding: 80px 40px 120px;
+}
+
+.arch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 60px auto 0;
+}
+
+/* Deployment */
+
+.arch-deployment {
+  padding: 80px 40px 140px;
+  text-align: center;
+}
+
+.deployment-box {
+  max-width: 900px;
+  margin: 40px auto 0;
+  padding: 60px;
+  background: rgba(15,20,28,0.95);
+  border-left: 6px solid var(--accent-red);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+/* Section Label */
+
+.section-label {
+  font-size: 1.8rem;
+  margin-bottom: 40px;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.75);
+}
+
+/* =============================== */
+/* OCULUS HURRICANE SYSTEM        */
+/* =============================== */
+
+.orbit-container {
+  position: relative;
+  width: 950px;
+  height: 950px;
+  margin: 120px auto 0;
+}
+
+/* Storm Bands */
+
+.orbit-container::before,
+.orbit-container::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(120,0,0,0.25);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.orbit-container::before {
+  width: 520px;
+  height: 520px;
+}
+
+.orbit-container::after {
+  width: 700px;
+  height: 700px;
+  border: 1px solid rgba(120,0,0,0.15);
+}
+
+/* Director */
+
+.director {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 220px;
+  height: 220px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle at center,
+      rgba(120,0,0,0.4),
+      rgba(15,20,28,0.95)
+  );
+  border: 2px solid var(--accent-red);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 1px;
+  z-index: 5;
+  box-shadow: 0 0 80px rgba(120,0,0,0.4);
+}
+
+/* Domain Style */
+
+.domain {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 190px;
+  height: 75px;
+  border-radius: 60px;
+  background: linear-gradient(
+    145deg,
+    rgba(20,25,35,0.95),
+    rgba(10,14,20,0.95)
+  );
+  border: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  padding: 10px;
+  text-align: center;
+  letter-spacing: 1px;
+  z-index: 3;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.domain:hover {
+  box-shadow: 0 0 30px rgba(120,0,0,0.4);
+}
+
+/* Connector Beam */
+
+.domain::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 240px;
+  background: linear-gradient(
+      to bottom,
+      rgba(120,0,0,0.7),
+      transparent
+  );
+  top: -240px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+}
+
+/* Alternating Radius */
+/* OUTER = 360px */
+/* INNER = 270px */
+
+.d1  { transform: rotate(0deg)   translate(360px) rotate(0deg); }
+.d2  { transform: rotate(30deg)  translate(270px) rotate(-30deg); }
+.d3  { transform: rotate(60deg)  translate(360px) rotate(-60deg); }
+.d4  { transform: rotate(90deg)  translate(270px) rotate(-90deg); }
+.d5  { transform: rotate(120deg) translate(360px) rotate(-120deg); }
+.d6  { transform: rotate(150deg) translate(270px) rotate(-150deg); }
+.d7  { transform: rotate(180deg) translate(360px) rotate(-180deg); }
+.d8  { transform: rotate(210deg) translate(270px) rotate(-210deg); }
+.d9  { transform: rotate(240deg) translate(360px) rotate(-240deg); }
+.d10 { transform: rotate(270deg) translate(270px) rotate(-270deg); }
+.d11 { transform: rotate(300deg) translate(360px) rotate(-300deg); }
+.d12 { transform: rotate(330deg) translate(270px) rotate(-330deg); }
+
+.orbit {
+  animation: slowSpin 160s linear infinite;
+}
+
+@keyframes slowSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

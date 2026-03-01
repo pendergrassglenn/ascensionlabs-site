@@ -4,56 +4,39 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ascension Labs | Sovereign AI Intelligence</title>
-  <meta name="description" content="Sovereign AI defense systems engineered for machine-speed conflict." />
-  <link rel="stylesheet" href="/assets/css/base.css" />
-  <link rel="stylesheet" href="/assets/css/layout.css" />
-  <link rel="stylesheet" href="/assets/css/components.css" />
+  <script type="module" src="/src/main.js"></script>
 </head>
 
 <body>
-
-<div id="header"></div>
-
-<main>
-
-<section class="hero">
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <h1>Intelligence for the Autonomous Battlespace.</h1>
-    <p>Sovereign AI defense systems engineered for machine-speed conflict.</p>
-
-    <div class="cta-group">
-      <a href="/architecture/" class="btn-primary">Explore Architecture</a>
-      <a href="/research/" class="btn-secondary">View Research</a>
+  <div class="system-readout">
+    <div class="status-line">
+      <span class="blink">●</span> CORE_STATUS: <span class="highlight">ENCRYPTED_STABLE</span>
     </div>
+    <div class="status-line">UPLINK: SOVEREIGN_NODE_04</div>
+    <div class="status-line">LATENCY: 0.002ms</div>
   </div>
-</section>
 
-<section class="mission-preview">
-  <div class="container">
-    <h2>Defining the Next Domain of Intelligence.</h2>
-    <p>
-      Modern intelligence architecture lacks a formal discipline for adversarial AI systems.
-      Ascension Labs is establishing structured research and sovereign frameworks
-      for AI-native threat intelligence.
-    </p>
+  <div id="header"></div>
+
+  <div class="page-canvas">
+    <main>
+      <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <h1>Sovereign Intelligence. Deterministic Autonomy at Machine Speed.</h1>
+          <p>FIPS 140-3 compliant AI C2 architecture engineered for 
+            multi-domain intelligence operations in contested and air-gapped environments.</p>
+          <div class="cta-group">
+            <a href="/architecture/" class="btn-primary">Explore Architecture</a>
+            <a href="/research/" class="btn-secondary">View Research</a>
+          </div>
+        </div>
+      </section>
+    </main>
   </div>
-</section>
 
-</main>
+  <div id="footer"></div>
 
-<div id="footer"></div>
-
-<script src="/assets/js/motion.js"></script>
-<script>
-  fetch('/partials/header.html')
-    .then(res => res.text())
-    .then(data => document.getElementById('header').innerHTML = data);
-
-  fetch('/partials/footer.html')
-    .then(res => res.text())
-    .then(data => document.getElementById('footer').innerHTML = data);
-</script>
-
+  <script type="module" src="/src/js/motion.js"></script>
 </body>
 </html>

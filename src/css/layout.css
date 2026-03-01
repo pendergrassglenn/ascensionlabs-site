@@ -1,0 +1,664 @@
+/* ===================================== */
+/* ARCHITECTURE PAGE STRUCTURE           */
+/* ===================================== */
+
+.architecture-page {
+  position: relative;
+  padding-bottom: 120px;
+}
+
+/* Section Divider */
+
+.section-divider {
+  height: 1px;
+  width: 60%;
+  margin: 100px auto;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(120,0,0,0.6),
+    transparent
+  );
+}
+
+.hero {
+  position: relative;
+  height: 100vh;
+  background: url('/background-ascension.png') center center / cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(5, 8, 12, 0.121),
+    rgba(5, 8, 12, 0.196)
+  );
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #ffffff;            /* ← THIS is what you’re missing */
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 30px;
+}
+
+/* ===================================== */
+/* CAI CORE SECTION                      */
+/* ===================================== */
+
+.arch-core {
+  padding: 160px 40px 80px;
+  text-align: center;
+  font-size: 5rem;
+}
+
+.core-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px;
+}
+
+.core-summary {
+  max-width: 750px;
+  margin: 20px auto 40px;
+  color: rgba(255,255,255,0.7);
+  font-size: 1rem;
+}
+
+.core-pillars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+  text-align: left;
+  margin-top: 40px;
+}
+
+.pillar h4 {
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.pillar p {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.65);
+}
+/* ===================================== */
+/* SYSTEM AUTHORITY & DEPENDENCY STACK   */
+/* ===================================== */
+
+.arch-stack {
+  padding: 90px 40px;
+  text-align: center;
+}
+
+.stack-tree {
+  max-width: 1100px;
+  margin: 60px auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+}
+
+.stack-node {
+  width: min(900px, 100%);
+  padding: 26px 28px;
+  background: rgba(15,20,28,0.92);
+  border: 1px solid rgba(255,255,255,0.07);
+  text-align: left;
+}
+
+.stack-root {
+  border-color: rgba(255,255,255,0.12);
+}
+
+.stack-axiom {
+  border-color: rgba(255,255,255,0.12);
+}
+
+.stack-title {
+  font-size: 1.1rem;
+  font-weight: 650;
+  letter-spacing: 1.5px;
+}
+
+.stack-sub {
+  margin-top: 6px;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  color: rgba(255,255,255,0.65);
+}
+
+.stack-desc {
+  margin-top: 10px;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.45;
+}
+
+.stack-connector {
+  width: 1px;
+  height: 28px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(255,255,255,0.22),
+    transparent
+  );
+}
+
+.stack-row {
+  width: min(900px, 100%);
+  display: flex;
+  justify-content: center;
+}
+
+.stack-tags {
+  margin-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.25);
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  color: rgba(255,255,255,0.72);
+}
+
+.stack-children {
+  margin-top: 18px;
+  gap: 16px;
+}
+
+.stack-child {
+  width: calc((min(900px, 100%) - 32px) / 3);
+  text-align: left;
+  padding: 18px 18px;
+  background: rgba(10,14,20,0.75);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+@media (max-width: 900px) {
+  .stack-children {
+    flex-direction: column;
+  }
+  .stack-child {
+    width: 100%;
+  }
+}
+
+/* ===================================== */
+/* LAYERS                                */
+/* ===================================== */
+
+.arch-layers {
+  padding: 80px 40px;
+  text-align: center;
+}
+
+.section-label {
+  font-size: 1.8rem;
+  margin-bottom: 40px;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.75);
+}
+
+.headline-primary {
+  display: block;
+  font-size: 1.9rem;
+  margin-bottom: 12px; /* <-- adjust this value */
+}
+
+.headline-secondary {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: rgba(255,255,255,0.65);
+}
+
+.layer-stack {
+  max-width: 900px;
+  margin: 60px auto 0;
+}
+
+.layer-item {
+  text-align: left;
+  padding: 30px 40px;
+  margin-bottom: 20px;
+  /* Satin Gradient */
+  background: linear-gradient(145deg, #0a0d12 0%, #1c1f24 100%); 
+  /* Precision Border */
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  /* Inner Bezel Effect */
+  box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.02);
+  transition: all 0.3s ease;
+}
+
+.layer-item:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateX(10px); /* Subtle tactical slide */
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.05), 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.layer-item h4 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #ffffff;
+}
+/* ===================================== */
+/* DEPLOYMENT                            */
+/* ===================================== */
+
+.arch-deployment {
+  padding: 80px 40px 140px;
+  text-align: center;
+  
+}
+
+/* ===================================== */
+/* DEPLOYMENT CARDS                      */
+/* ===================================== */
+
+.deployment-grid {
+  max-width: 1100px;
+  margin: 60px auto 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+}
+
+.deployment-card {
+  padding: 40px 30px;
+  text-align: center;
+
+  border: 1px solid rgba(203, 183, 183, 0.35);
+  background: linear-gradient(145deg, #000000 0%, #242626 100%);
+  box-shadow:
+    0 10px 30px rgba(223, 198, 198, 0.15),
+    inset 0 0 15px rgba(255, 255, 255, 0.05);
+
+  transition: all 0.3s ease;
+}
+
+.deployment-card:hover {
+  border-color: var(--accent-red);
+  transform: translateY(-4px);
+  box-shadow: 0 0 25px rgba(101, 107, 107, 0.4);
+}
+
+.deployment-card h4 {
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+.deployment-card p {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.75);
+}
+
+/* ===================================== */
+/* OCULUS SYSTEM - CLEAN TACTICAL ARRAY  */
+/* ===================================== */
+
+.arch-domains {
+  padding: 100px 40px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  letter-spacing: 2.5px;
+  overflow: hidden;
+  gap: 60px;
+}
+
+.orbit-container {
+  position: relative;
+  width: 1000px;
+  height: 1000px;
+  margin: 0 auto;
+}
+
+.director {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 140px;
+  height: 120px;
+  transform: translate(-50%, -50%);
+  border-color: rgba(203, 183, 183, 0.35); /* Subtle silver-grey edge for light reflection */
+  background: linear-gradient(145deg, #000000 0%, #242626 100%); /* The wet satin gradient */
+  box-shadow: 0 10px 30px rgba(223, 198, 198, 0.15), inset 0 0 15px rgba(255, 255, 255, 0.05);
+  border-radius: 6%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 1px;
+  z-index: 10;
+}
+
+.domain {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 190px;
+  height: 75px;
+  /* Fully opaque background prevents any bleed-through */
+  /* High-fidelity Black Ice Effect */
+  border-color: rgba(203, 183, 183, 0.35); /* Subtle silver-grey edge for light reflection */
+  background: linear-gradient(145deg, #000000 0%, #242626 100%); /* The wet satin gradient */
+  box-shadow: 0 10px 30px rgba(223, 198, 198, 0.15), inset 0 0 15px rgba(255, 255, 255, 0.05);
+  border-radius: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 15px;
+  font-size: 0.75rem;
+  z-index: 5;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+
+  transform: translate(-50%, -50%) 
+             rotate(var(--angle)) 
+             translateX(var(--dist)) 
+             rotate(var(--rev)) 
+             scale(var(--zoom, 1));
+}
+
+.domain:hover {
+  --zoom: 1.05;
+  border-color: var(--accent-red);
+  background: rgba(80, 83, 90, 0.242);
+  box-shadow: 0 0 20px rgba(101, 107, 107, 0.378);
+}
+
+/* THE BEAM: Using a transparent gradient start to stop penetration */
+.domain::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1px;
+  height: var(--beam-height);
+  z-index: -1;
+  transition: all 0.3s ease;
+  opacity: 0.6;
+  transform-origin: top center;
+  transform: rotate(var(--beam-angle));
+  
+  /* The line is transparent for the first X pixels (inside the box) 
+     and then becomes the red gradient. */
+  background: linear-gradient(
+    to bottom, 
+    transparent var(--edge), 
+    var(--accent-red) var(--edge), 
+    transparent
+  );
+}
+
+.domain:hover::after {
+  opacity: 1;
+  width: 2px;
+  background: linear-gradient(
+    to bottom, 
+    transparent var(--edge), 
+    var(--accent-red) var(--edge)
+  );
+}
+
+/* MATHEMATICAL CONSTANTS
+   --edge: The distance from the center of the box to its outer wall 
+           based on the specific angle of the connection.
+*/
+
+/* Outer Ring (d1, 3, 5, 7, 9, 11) */
+.d1, .d3, .d5, .d7, .d9, .d11 { --dist: 420px; --beam-height: 310px; }
+
+/* Inner Ring (d2, 4, 6, 8, 10, 12) */
+.d2, .d4, .d6, .d8, .d10, .d12 { --dist: 280px; --beam-height: 170px; }
+
+/* Individual Positioning & Edge Math */
+.d1  { --angle: 0deg;   --rev: 0deg;    --beam-angle: 90deg;  --edge: 95px; }
+.d2  { --angle: 30deg;  --rev: -30deg;  --beam-angle: 120deg; --edge: 75px; }
+.d3  { --angle: 60deg;  --rev: -60deg;  --beam-angle: 150deg; --edge: 43px; }
+.d4  { --angle: 90deg;  --rev: -90deg;  --beam-angle: 180deg; --edge: 38px; }
+.d5  { --angle: 120deg; --rev: -120deg; --beam-angle: 210deg; --edge: 43px; }
+.d6  { --angle: 150deg; --rev: -150deg; --beam-angle: 240deg; --edge: 75px; }
+.d7  { --angle: 180deg; --rev: -180deg; --beam-angle: 270deg; --edge: 95px; }
+.d8  { --angle: 210deg; --rev: -210deg; --beam-angle: 300deg; --edge: 75px; }
+.d9  { --angle: 240deg; --rev: -240deg; --beam-angle: 330deg; --edge: 43px; }
+.d10 { --angle: 270deg; --rev: -270deg; --beam-angle: 360deg; --edge: 38px; }
+.d11 { --angle: 300deg; --rev: -300deg; --beam-angle: 390deg; --edge: 43px; }
+.d12 { --angle: 330deg; --rev: -330deg; --beam-angle: 420deg; --edge: 75px; }
+
+/* ===================================== */
+/* INTELLIGENCE → GOVERNANCE → EXECUTION */
+/* ===================================== */
+
+
+.arch-hero {
+  padding: 50px 20px 50px;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+  font-size: 1.4rem;
+}
+
+.arch-structure {
+  width: 100%;
+  max-width: 1600px;
+  margin: 100px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 90px;
+}
+
+.structure-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.layer-label {
+  font-size: 0.9rem;
+  letter-spacing: 4px;
+  color: rgba(255,255,255,0.45);
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.governance-block {
+  margin-top: 100px;
+}
+
+.spine {
+  width: 3px;
+  height: 60px;
+  background: rgba(255,255,255,0.35);
+  margin: 40px auto;
+  margin-top: 20px;
+}
+
+/* ===================================== */
+/* ENGINE ROW LAYOUT ONLY                */
+/* ===================================== */
+
+.engine-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  width: 100%;
+}
+
+/* ===================================== */
+/* ENGINE NODE COMPONENT                 */
+/* ===================================== */
+
+.engine-node {
+  min-width: 120px;
+  padding: 10px 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  border: 1px solid rgba(203, 183, 183, 0.35);
+  background: linear-gradient(145deg, #000000 0%, #242626 100%);
+  box-shadow:
+    0 10px 30px rgba(223, 198, 198, 0.15),
+    inset 0 0 15px rgba(255, 255, 255, 0.05);
+
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.25s ease;
+}
+
+.engine-node:hover {
+  border-color: var(--accent-red);
+  background: rgba(80, 83, 90, 0.25);
+  box-shadow: 0 0 20px rgba(101, 107, 107, 0.4);
+  transform: translateY(-3px);
+}
+
+/* ===================================== */
+/* HOVER METADATA                        */
+/* ===================================== */
+
+.node-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.node-wrapper .meta {
+  margin-top: 12px;
+  font-size: 0.65rem;
+  letter-spacing: 1px;
+  color: rgba(255,255,255,0.55);
+  opacity: 0;
+  visibility: hidden;
+  padding: 2px 6px;
+  line-height: 0.7;
+  max-width: 180px;
+  text-align: center;
+  transform: translateY(6px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.node-wrapper:hover .meta {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* ===================================== */
+/* TYPOGRAPHIC AUTHORITY TIERS           */
+/* ===================================== */
+
+.type-cai {
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  font-size: 3rem;
+}
+
+.type-certus {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: 2px;
+  min-width: 120px;
+  padding: 10px 20px;
+
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.25s ease;
+}
+
+.type-axiom {
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  font-size: 2.6rem;
+}
+
+.type-system {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: 2px;
+  font-size: 1rem;
+}
+
+.type-cai,
+.type-axiom,
+.type-certus {
+  text-decoration: none;
+}
+
+/* ===================================== */
+/* HERO FADE IN                          */
+/* ===================================== */
+
+.fade-in {
+  opacity: 0;
+  animation: heroFade 1.2s ease forwards;
+}
+
+@keyframes heroFade {
+  to {
+    opacity: 1;
+  }
+}
+
+.arch-hero h1 {
+  animation: heroFade 1s ease forwards;
+  animation-delay: 0.2s;
+  opacity: 0;
+}
+
+.arch-hero p {
+  animation: heroFade 1s ease forwards;
+  animation-delay: 0.5s;
+  opacity: 0;
+}
+
+
